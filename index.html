@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrapper{
+            width: 300px;
+            height: 300px;
+            border: 2px solid #000;
+        }
+        .wrapper .btnWrapper{
+            height: 50px;
+            text-align: center;
+        }
+        .wrapper .btnWrapper button{
+            height: 50px;
+            width: 50px;
+            background: red ;
+        }
+        .wrapper .content {
+            position: relative;
+        }
+        .wrapper .content div{
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            width: 300px;
+            height: 250px;
+            background: orange;
+            font-size: 30px;
+        }
+        .wrapper .btnWrapper .active{
+            background: green;
+        }
+        .wrapper .content .show{
+            display: block ;
+        }
+    </style>
+</head>
+<body>
+    <script src="jquery-3.3.1.js"></script>
+    <div class="wrapper">
+        <div class="btnWrapper">
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+        </div>
+        <div class="content">
+            <div class="show">1</div>
+            <div>2</div>
+            <div>3</div>
+        </div>
+    </div>
+   <script>
+    //    $('button').click( function (index) {
+    //        var a = $(this).index();
+    //        $('button').removeClass();
+    //        $('button').eq(a ).addClass('active');
+    //        $('.content div').removeClass();
+    //        $('.content div').eq(a).addClass('show');
+    //    } )
+
+    $('button').click(function () {
+        $('.active').removeClass();
+        $(this).addClass('active');
+        var num = $(this).index();
+        $('.show').removeClass();
+        $('.content div').eq(num).addClass('show');
+    })
+   </script>
+
+</body>
+</html>
